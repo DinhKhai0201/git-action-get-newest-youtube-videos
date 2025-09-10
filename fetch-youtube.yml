@@ -19,15 +19,15 @@ jobs:
   #         APP_URL: ${{ secrets.APP_URL }}
   #         CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
 
-  fetch-douyin:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */3 * * *' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fetch Douyin videos
-        run: |
-          curl -X POST "${{ secrets.APP_URL }}/api/cron/fetch-douyin" \
-            -H "Authorization: Bearer ${{ secrets.CRON_API_KEY }}" \
-            -H "Content-Type: application/json"
-        env:
-          APP_URL: ${{ secrets.APP_URL }}
-          CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
+  # fetch-douyin:
+  #   if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */3 * * *' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Fetch Douyin videos
+  #       run: |
+  #         curl -X POST "${{ secrets.APP_URL }}/api/cron/fetch-douyin" \
+  #           -H "Authorization: Bearer ${{ secrets.CRON_API_KEY }}" \
+  #           -H "Content-Type: application/json"
+  #       env:
+  #         APP_URL: ${{ secrets.APP_URL }}
+  #         CRON_API_KEY: ${{ secrets.CRON_API_KEY }}

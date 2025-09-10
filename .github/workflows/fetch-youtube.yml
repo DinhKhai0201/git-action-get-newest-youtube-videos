@@ -6,18 +6,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  fetch-youtube:
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '*/5 * * * *' }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fetch YouTube videos
-        run: |
-          curl -X POST "${{ secrets.APP_URL }}/api/cron/fetch-youtube" \
-            -H "Authorization: Bearer ${{ secrets.CRON_API_KEY }}" \
-            -H "Content-Type: application/json"
-        env:
-          APP_URL: ${{ secrets.APP_URL }}
-          CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
+  # fetch-youtube:
+  #   if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '*/5 * * * *' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Fetch YouTube videos
+  #       run: |
+  #         curl -X POST "${{ secrets.APP_URL }}/api/cron/fetch-youtube" \
+  #           -H "Authorization: Bearer ${{ secrets.CRON_API_KEY }}" \
+  #           -H "Content-Type: application/json"
+  #       env:
+  #         APP_URL: ${{ secrets.APP_URL }}
+  #         CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
 
   fetch-douyin:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '0 */3 * * *' }}

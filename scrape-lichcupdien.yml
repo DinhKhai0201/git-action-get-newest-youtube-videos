@@ -1,0 +1,22 @@
+name: Auto Scrape Outages Data
+on:
+  schedule:
+    # 8h sáng Việt Nam (UTC+7) -> 1h sáng UTC
+    - cron: '0 1 * * *'
+    # 12h trưa Việt Nam (UTC+7) -> 5h sáng UTC
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Scrape API
+        run: |
+          # Gọi đến endpoint GET /api/scrape
+          curl -v -X GET "${{ secrets.LCD_APP_URL }}/api/scrape" \
+            -H "Authorization: Bearer ${{ secrets.CRON_LCD_API_KEY }}" \
+            -H "Content-Type: application/json"
+        env:
+          APP_URL: ${{ secrets.APP_URL }}
+          CRON_API_KEY: ${{ secrets.CRON_API_KEY }}

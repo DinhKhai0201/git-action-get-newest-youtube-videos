@@ -1,5 +1,8 @@
 name: Fetch YouTube Videos
 on:
+  push:
+    branches:
+      - master
   schedule:
     - cron: '*/5 * * * *'
     - cron: '0 */3 * * *'

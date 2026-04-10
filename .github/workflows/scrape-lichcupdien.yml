@@ -1,5 +1,8 @@
 name: Auto Scrape Outages Data
 on:
+  push:
+    branches:
+      - master
   schedule:
     # 6h sáng Việt Nam (UTC+7) -> 23h UTC
     - cron: '0 23 * * *'

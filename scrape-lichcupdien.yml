@@ -1,10 +1,10 @@
 name: Auto Scrape Outages Data
 on:
   schedule:
-    # 8h sáng Việt Nam (UTC+7) -> 1h sáng UTC
-    - cron: '0 1 * * *'
-    # 12h trưa Việt Nam (UTC+7) -> 5h sáng UTC
-    - cron: '0 5 * * *'
+    # 6h sáng Việt Nam (UTC+7) -> 23h UTC
+    - cron: '0 23 * * *'
+    # 23h tối Việt Nam (UTC+7) -> 16h UTC
+    - cron: '0 16 * * *'
   workflow_dispatch:
 
 jobs:

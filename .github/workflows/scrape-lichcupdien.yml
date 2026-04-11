@@ -6,8 +6,8 @@ on:
   schedule:
     # 6h sáng Việt Nam (UTC+7) -> 23h UTC
     - cron: '0 23 * * *'
-    # 23h tối Việt Nam (UTC+7) -> 16h UTC
-    - cron: '0 16 * * *'
+    # 8h sáng Việt Nam (UTC+7) -> 1h UTC
+    - cron: '0 1 * * *'
   workflow_dispatch:
 
 jobs:
